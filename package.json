@@ -1,0 +1,14 @@
+{
+  "name": "usdt-donations",
+  "version": "1.0.0",
+  "description": "USDT-only donation site with a live on-chain donation tracker",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "local": "node --env-file=.env server.js"
+  },
+  "license": "MIT"
+}

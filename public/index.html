@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Open Path Fund – Donate USDT for people with disabilities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F7;--surface:#fff;--ink:#0F2238;--muted:#4A5B6D;--line:#D3DCE4;
+  --accent:#17795A;--on-accent:#fff;--soft:#E1F2EC;--warn-bg:#FFF4D6;--warn-ink:#5A4300;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0C1622;--surface:#13233A;--ink:#EAF0F6;--muted:#A3B3C4;--line:#263A52;--accent:#3CC79A;--on-accent:#08251B;--soft:#12362F;--warn-bg:#3A3010;--warn-ink:#F5DFA0}
+}
+:root[data-theme="dark"]{--bg:#0C1622;--surface:#13233A;--ink:#EAF0F6;--muted:#A3B3C4;--line:#263A52;--accent:#3CC79A;--on-accent:#08251B;--soft:#12362F;--warn-bg:#3A3010;--warn-ink:#F5DFA0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.6 "Atkinson Hyperlegible",Verdana,system-ui,sans-serif}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:.6rem 1rem;z-index:9}
+.skip:focus{left:8px;top:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.25rem;letter-spacing:.01em}
+header a.plain{color:var(--ink);text-decoration:none;margin-left:22px}
+header a.plain:hover{text-decoration:underline}
+.hero{display:grid;grid-template-columns:1fr 430px;gap:48px;align-items:start;padding:28px 0 64px}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;margin:0 0 20px;letter-spacing:-.015em}
+.lede{font-size:1.25rem;color:var(--muted);max-width:34em;margin:0 0 24px}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:10px;max-width:32em}
+.facts li{padding-left:18px;border-left:4px solid var(--accent)}
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:14px;padding:22px}
+.card h2{font-size:1.3rem;margin:0 0 4px}
+.card p.sub{margin:0 0 16px;color:var(--muted);font-size:1rem}
+.nets{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.nets button{font:inherit;font-size:.95rem;font-weight:700;padding:10px 6px;border-radius:8px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;line-height:1.25}
+.nets button small{display:block;font-weight:400;color:var(--muted)}
+.nets button[aria-checked="true"]{border-color:var(--accent);background:var(--soft)}
+.addr{display:flex;gap:8px;align-items:stretch}
+.addr code{flex:1;min-width:0;word-break:break-all;background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:10px 12px;font:700 .95rem/1.4 ui-monospace,Menlo,Consolas,monospace;user-select:all}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--on-accent);border:0;border-radius:8px;padding:0 18px;cursor:pointer;min-height:48px}
+.btn:hover{filter:brightness(1.08)}
+.qr{display:flex;justify-content:center;margin:18px 0}
+.qr>div{background:#fff;padding:10px;border-radius:10px;border:2px solid var(--line);line-height:0}
+.notice{background:var(--warn-bg);color:var(--warn-ink);border-radius:8px;padding:12px 14px;font-size:1rem;margin:14px 0 0}
+.card .links{margin:14px 0 0;font-size:1rem;display:flex;flex-direction:column;gap:6px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.15;margin:0 0 24px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.bars{display:grid;gap:18px;margin:0;padding:0;list-style:none}
+.bars .row{display:flex;justify-content:space-between;font-weight:700}
+.bars .track{height:14px;background:var(--line);border-radius:7px;overflow:hidden;margin:6px 0 4px}
+.bars .fill{height:100%;background:var(--accent)}
+.bars p{margin:0;color:var(--muted);font-size:1rem}
+ol.steps{margin:0;padding-left:1.3em;display:grid;gap:14px}
+ol.steps li::marker{font-weight:700;color:var(--accent)}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:700}
+details p{margin:10px 0 0;color:var(--muted);max-width:44em}
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:1rem}
+.raised{margin:26px 0 0;font-size:1.1rem;color:var(--muted)}
+.raised strong{display:block;font-size:2.4rem;line-height:1.1;color:var(--ink)}
+.feed{list-style:none;margin:0;padding:0;display:grid}
+.feed li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.feed .amt{font-weight:700;font-size:1.2rem}
+.feed .meta{color:var(--muted);font-size:1rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.hero,.split{grid-template-columns:1fr;gap:32px}}
+@media (max-width:420px){.nets button{font-size:.85rem}.addr{flex-direction:column}}
+</style>
+</head>
+<body>
+<a class="skip" href="#donate">Skip to donate</a>
+<div class="wrap">
+  <header>
+    <div class="brand" id="orgName">Open Path Fund</div>
+    <nav aria-label="Main"><a class="plain" href="#use">Where funds go</a><a class="plain" href="#how">How to give</a><a class="plain" href="#faq">Questions</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Mobility, care and independence for people with disabilities.</h1>
+        <p class="lede">Your USDT pays for wheelchairs, prosthetics, rehabilitation and school fees. Every donation goes to a public wallet anyone can check.</p>
+        <ul class="facts">
+          <li>USDT is the only currency we accept. No cards, no bank transfers.</li>
+          <li>Our wallet is public, so every incoming gift is visible on a block explorer.</li>
+          <li>No account or sign-up. Send from any wallet or exchange.</li>
+        </ul>
+        <p class="raised" id="raised" hidden></p>
+      </div>
+
+      <div class="card" id="donate">
+        <h2>Donate USDT</h2>
+        <p class="sub">Choose the network your wallet will send on.</p>
+        <div class="nets" role="radiogroup" aria-label="Network" id="nets"></div>
+        <div class="addr">
+          <code id="addr" aria-label="Wallet address"></code>
+          <button class="btn" id="copy" type="button">Copy</button>
+        </div>
+        <span class="sr" role="status" aria-live="polite" id="status"></span>
+        <div class="qr" id="qrWrap"><div id="qr"></div></div>
+        <div class="notice" id="netNote"></div>
+        <div class="notice" id="demoNote" hidden>This wallet address is a placeholder. Replace it in the CONFIG block before you publish.</div>
+        <div class="links">
+          <a id="explorer" href="#" target="_blank" rel="noopener noreferrer">View this wallet on a block explorer</a>
+          <a id="receipt" href="#">Email us your transaction hash for a receipt</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="use">
+      <div class="split">
+        <div>
+          <h2>Where your USDT goes</h2>
+          <ul class="bars" id="bars"></ul>
+        </div>
+        <div>
+          <h2>Our promise</h2>
+          <p>We publish a report of incoming and outgoing transactions every quarter. Each purchase of equipment or payment for care is listed with its transaction hash and the receipt from the supplier.</p>
+          <p>We never ask you to send funds to a different address by message or email. The only address is the one on this page.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="recent">
+      <h2>Recent donations</h2>
+      <p id="recentEmpty" style="color:var(--muted)">Loading…</p>
+      <ul class="feed" id="feed"></ul>
+      <p id="stale" style="color:var(--muted);font-size:1rem" hidden>Live data is delayed right now. Totals may be a few minutes behind.</p>
+    </section>
+
+    <section id="how">
+      <h2>How to give</h2>
+      <ol class="steps">
+        <li>Pick the network in the box above. TRON (TRC-20) usually has the lowest fees.</li>
+        <li>Copy the address or scan the QR code with your wallet app.</li>
+        <li>Send any amount of USDT. Check that the network in your wallet matches the network you picked.</li>
+        <li>Optional: email us the transaction hash and we will send you a receipt.</li>
+      </ol>
+    </section>
+
+    <section id="faq">
+      <h2>Questions</h2>
+      <details><summary>What happens if I send on the wrong network?</summary><p>Funds sent on a network that does not match the address can be lost. Always match the network in your wallet to the one you selected here. If you are unsure, send a small test amount first.</p></details>
+      <details><summary>Can I donate other coins?</summary><p>No. We accept USDT only, so that every gift is stable in value and easy to account for.</p></details>
+      <details><summary>Is my donation tax deductible?</summary><p id="taxText">Tax rules depend on your country and on our legal status. Ask us for a receipt and check with your tax adviser.</p></details>
+      <details><summary>Can I stay anonymous?</summary><p>Yes. Blockchain transactions show only wallet addresses. You do not need to tell us who you are.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <span id="foot">Open Path Fund. Registered details, contact email and report links go here.</span>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* Addresses, org name and email come from the server (.env). Edit the allocation below. */
+var CONFIG = {
+  contactEmail: "",
+  networks: [],
+  allocation: [
+    { label:"Wheelchairs and mobility aids", pct:40, text:"Chairs, walkers, prosthetics and repairs." },
+    { label:"Medical care and rehabilitation", pct:30, text:"Therapy sessions, treatment and transport to clinics." },
+    { label:"Education and work", pct:20, text:"School fees, adaptive tools and small business grants." },
+    { label:"Running costs", pct:10, text:"Audits, wallet security and reporting." }
+  ]
+};
+/* ========================================== */
+
+var current = null, qr = null;
+var $ = function(id){ return document.getElementById(id); };
+function isPlaceholder(a){ return a.indexOf("REPLACE") === 0; }
+
+function drawNets(){
+  var box = $("nets");
+  CONFIG.networks.forEach(function(n){
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("role","radio");
+    b.setAttribute("aria-checked", n.id === current.id);
+    b.dataset.id = n.id;
+    b.innerHTML = n.name + "<small>" + n.tag + "</small>";
+    b.addEventListener("click", function(){ select(n); });
+    box.appendChild(b);
+  });
+}
+
+function select(n){
+  current = n;
+  document.querySelectorAll("#nets button").forEach(function(b){
+    b.setAttribute("aria-checked", b.dataset.id === n.id);
+  });
+  $("addr").textContent = n.address;
+  $("netNote").textContent = n.note + " Funds sent on any other network can be lost.";
+  var demo = isPlaceholder(n.address);
+  $("demoNote").hidden = !demo;
+  $("qrWrap").hidden = demo;
+  $("explorer").href = demo ? "#" : n.explorer + n.address;
+  $("receipt").hidden = !CONFIG.contactEmail;
+  $("receipt").href = "mailto:" + CONFIG.contactEmail + "?subject=" + encodeURIComponent("Donation receipt request") +
+    "&body=" + encodeURIComponent("Network: " + n.tag + "\nTransaction hash: ");
+  if(!demo){
+    try{
+      if(!qr){ qr = new QRCode($("qr"), { text:n.address, width:168, height:168, colorDark:"#0F2238", colorLight:"#ffffff", correctLevel:QRCode.CorrectLevel.M }); }
+      else { qr.clear(); qr.makeCode(n.address); }
+    }catch(e){ $("qrWrap").hidden = true; }
+  }
+}
+
+$("copy").addEventListener("click", function(){
+  var text = current.address, s = $("status");
+  function ok(){ s.textContent = "Address copied"; $("copy").textContent = "Copied"; setTimeout(function(){ $("copy").textContent = "Copy"; s.textContent = ""; }, 2000); }
+  function fallback(){
+    var r = document.createRange(); r.selectNodeContents($("addr"));
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    s.textContent = "Address selected. Press copy on your device.";
+  }
+  try{ navigator.clipboard.writeText(text).then(ok, fallback); }catch(e){ fallback(); }
+});
+
+function drawBars(){
+  $("bars").innerHTML = CONFIG.allocation.map(function(a){
+    return '<li><div class="row"><span>' + a.label + '</span><span>' + a.pct + '%</span></div>' +
+      '<div class="track" role="img" aria-label="' + a.pct + ' percent"><div class="fill" style="width:' + a.pct + '%"></div></div>' +
+      '<p>' + a.text + '</p></li>';
+  }).join("");
+}
+
+function money(n){ return "$" + Number(n).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function when(ts){
+  var m = Math.max(0, Math.round((Date.now() - ts) / 60000));
+  if (m < 60) return m <= 1 ? "just now" : m + " minutes ago";
+  if (m < 1440) return Math.round(m / 60) + " hours ago";
+  return new Date(ts).toLocaleDateString(undefined, { year:"numeric", month:"short", day:"numeric" });
+}
+async function refreshStats(){
+  try{
+    var s = await (await fetch("/api/stats")).json();
+    var r = $("raised"); r.hidden = false; r.textContent = "";
+    var b = document.createElement("strong"); b.textContent = money(s.total);
+    r.appendChild(b); r.appendChild(document.createTextNode("raised in USDT from " + s.count + (s.count === 1 ? " donation" : " donations")));
+    var feed = $("feed"); feed.textContent = "";
+    $("recentEmpty").hidden = s.recent.length > 0;
+    $("recentEmpty").textContent = "No donations yet. Yours could be the first.";
+    s.recent.forEach(function(d){
+      var li = document.createElement("li");
+      var a = document.createElement("span"); a.className = "amt"; a.textContent = money(d.amount) + " USDT";
+      var l = document.createElement("a"); l.href = d.url; l.target = "_blank"; l.rel = "noopener noreferrer"; l.textContent = "View transaction";
+      var m = document.createElement("span"); m.className = "meta"; m.textContent = d.network + " from " + d.from + ", " + when(d.ts);
+      li.appendChild(a); li.appendChild(l); li.appendChild(m); feed.appendChild(li);
+    });
+    $("stale").hidden = !s.stale;
+  }catch(e){ $("recentEmpty").textContent = "Donation totals are unavailable right now."; }
+}
+async function load(){
+  try{
+    var c = await (await fetch("/api/config")).json();
+    CONFIG.networks = c.networks; CONFIG.contactEmail = c.contactEmail;
+    if (c.orgName){ $("orgName").textContent = c.orgName; document.title = c.orgName + " – Donate USDT"; }
+  }catch(e){}
+  if (CONFIG.networks.length){ current = CONFIG.networks[0]; drawNets(); select(current); }
+  else { $("demoNote").hidden = false; $("demoNote").textContent = "Donations are temporarily unavailable."; $("qrWrap").hidden = true; }
+  drawBars(); refreshStats(); setInterval(refreshStats, 60000);
+}
+load();
+</script>
+</body>
+</html>
